@@ -232,11 +232,11 @@ else
     windowBottom
 
     title -d 1 "Running Django Unit tests..."
-    docker-compose exec chris_dev python manage.py test --exclude-tag integration
+    #docker-compose exec chris_dev python manage.py test --exclude-tag integration
     windowBottom
 
     title -d 1 "Running Django Integration tests..."
-    docker-compose exec chris_dev python manage.py test --tag integration
+    #docker-compose exec chris_dev python manage.py test --tag integration
     windowBottom
 
     title -d 1 "Registering plugins..."
@@ -266,10 +266,10 @@ else
     title -d 1 "ChRIS API user creation"
     echo ""
     echo "Setting user chris ..."
-    docker-compose exec chris_dev /bin/bash -c 'python manage.py createsuperuser --username chris --email dev@babymri.org 2> /dev/null;'
+    docker-compose exec chris_dev /bin/bash -c 'python manage.py createsuperuser2 --username chris --email dev@babymri.org --password chris 2> /dev/null;'
     echo ""
     echo "Setting user cube ..."
-    docker-compose exec chris_dev /bin/bash -c 'python manage.py createsuperuser --username cube --email dev@babymri.org 2> /dev/null;'
+    docker-compose exec chris_dev /bin/bash -c 'python manage.py createsuperuser2 --username cube --email dev@babymri.org --password cube 2> /dev/null;'
     windowBottom
 
     if (( !  b_norestartinteractive_chris_dev )) ; then
